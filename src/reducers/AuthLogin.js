@@ -7,6 +7,11 @@ const authLoginReducer = (state=[], action) => {
                 errorCode: action.payload.errorCode,
                 errorDetail: action.payload.errorDetail
             }
+        case 'LOGIN_SUCCESS':
+            return {
+                ...state,
+                
+            }
         default:
             return state
     }
