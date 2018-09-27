@@ -1,11 +1,19 @@
 import history from '../history'
+import { setStoreApplication, removeStoreApplication } from '../utilities/appStore'
 
 const AuthRedirect = store => next => action => {
-    if (action.type === 'LOGIN_SUCCESS') {
-        sessionStorage.setItem('login', JSON.stringify(action.payload))
-        history.push('/')
+    switch (action.type) {
+        case 'LOGIN_SUCCESS':
+            setStoreApplication('session', 'login', action.httpResponse)
+            history.push('/')
+            break
+        case 'LOGOUT_SUCCESS':
+            removeStoreApplication('session', 'login')
+            history.push('/login')
+            break
+        default:
+            next(action)
     }
-    next(action)
 }
 
 export default AuthRedirect
