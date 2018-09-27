@@ -10,7 +10,7 @@ const requestErrorLogin = errorDetailLogin => {
         type: 'REQUEST_ERROR_LOGIN',
         payload: {
             error: true,
-            errorCode: errorDetailLogin.response.status,
+            errorCode: errorDetailLogin.status,
             errorDetailLogin
         }
     }

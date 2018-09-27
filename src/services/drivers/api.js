@@ -20,13 +20,14 @@ const callApiLogin = (credentials) => {
     credentials.client_id = process.env.REACT_APP_CLIENT_ID
     credentials.client_secret = process.env.REACT_APP_CLIENT_SECRET
     credentials.scope = process.env.REACT_APP_SCOPE
+
     return new Promise((resolve, reject) => {
         instance.post('/oauth/token', credentials)
         .then(function(response) {
             resolve(response.data)
         })
         .catch(function(error) {
-            reject(error)
+            reject(error.response)
         })
     })
 }

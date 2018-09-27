@@ -1,5 +1,6 @@
 import { call, put, take, fork } from 'redux-saga/effects'
 import * as api from '../services/drivers/api'
+import * as authLogin from '../actions/AuthLogin'
 
 function* login() {
     while (true) {
@@ -9,8 +10,7 @@ function* login() {
             yield put({type: 'LOGIN_SUCCESS', httpResponse})
         }
         catch(error) {
-            console.log(error)
-            yield put({type: 'REQUEST_ERROR_LOGIN', error})
+            yield put(authLogin.requestErrorLogin(error))
         }
     }
 }
