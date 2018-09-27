@@ -43,4 +43,16 @@ const callApiLogout = () => {
     })
 }
 
-export { callApiLogin, callApiLogout }
+const callApiLoadUsers = () => {
+    return new Promise((resolve, reject) => {
+        instance.get('/api/users')
+        .then(function(response) {
+            resolve(response.data)
+        })
+        .catch(function(error) {
+            reject(error)
+        })
+    })
+}
+
+export { callApiLogin, callApiLogout, callApiLoadUsers }

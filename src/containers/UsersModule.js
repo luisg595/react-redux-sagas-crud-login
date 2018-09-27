@@ -1,15 +1,35 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import ListUsers from '../components/Users/ListUsers'
 import MainTemplate from '../containers/MainTemplate'
+import { loadUsers } from '../actions/Users'
 
 class UsersModule extends Component {
+    componentDidMount() {
+        this.props.loadUsers()
+    }
+
     render() {
         return (
             <MainTemplate>
-                <ListUsers />
+                <ListUsers users={this.props.users} />
             </MainTemplate>
         )
     }
 }
 
-export default UsersModule
+const mapStateToProps = state => {
+    return {
+        users: state.usersReducer
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        loadUsers() {
+            dispatch(loadUsers())
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersModule)

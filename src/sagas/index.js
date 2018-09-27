@@ -28,7 +28,21 @@ function* logout() {
     }
 }
 
+function* loadUsers() {
+    while (true) {
+        try {
+            yield take('LOAD_USERS')
+            const httpResponse = yield call(api.callApiLoadUsers)
+            yield put({type: 'REQUEST_DATA_USERS_SUCCESS', httpResponse})
+        }
+        catch(error) {
+            yield put({type: 'REQUEST_ERROR_LOAD_USERS', error})
+        }
+    }
+}
+
 export default function* rootSagas() {
     yield fork(login)
     yield fork(logout)
+    yield fork(loadUsers)
 }
