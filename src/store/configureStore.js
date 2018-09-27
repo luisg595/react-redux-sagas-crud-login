@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import reducer from '../reducers/combineReducers'
 import rootSagas from '../sagas'
+import AuthRedirect from '../middlewares/AuthRedirect'
 
 export default function configureStore(initialState) {
     const sagaMiddleware = createSagaMiddleware()
@@ -10,7 +11,7 @@ export default function configureStore(initialState) {
 
     const store = createStore(reducer,
         initialState,
-        composeEnhancers(applyMiddleware(sagaMiddleware))
+        composeEnhancers(applyMiddleware(sagaMiddleware, AuthRedirect))
     )
     
     store.runSaga = sagaMiddleware.run(rootSagas)

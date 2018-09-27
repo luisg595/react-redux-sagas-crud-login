@@ -12,7 +12,6 @@ const callApiLogin = (credentials) => {
     return new Promise((resolve, reject) => {
         request.post('/oauth/token', credentials)
         .then(function(response) {
-            console.log(response.data)
             resolve(response.data)
         })
         .catch(function(error) {

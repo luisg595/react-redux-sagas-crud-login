@@ -10,7 +10,7 @@ const authLoginReducer = (state=[], action) => {
         case 'LOGIN_SUCCESS':
             return {
                 ...state,
-                
+                data: action.payload
             }
         default:
             return state

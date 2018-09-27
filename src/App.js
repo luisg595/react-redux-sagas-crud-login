@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { Router } from 'react-router-dom'
 import './App.css'
 import Routes from './routes'
+import history from './history'
 
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <Routes />
       </Router>
     )
