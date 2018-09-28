@@ -1,5 +1,6 @@
 import React from 'react'
 import { Alert } from 'reactstrap'
+import { LogIn } from 'react-feather'
 import './index.css'
 
 const Login = ({ onInputChange, data, onSubmit, isError, errorCode }) => {
@@ -23,7 +24,7 @@ const Login = ({ onInputChange, data, onSubmit, isError, errorCode }) => {
                 <input type="email" id="inputEmail" className="form-control" name="username" onChange={onInputChange} value={data.inputEmail} placeholder="Email address" required autoFocus />
                 <label htmlFor="inputPassword" className="sr-only">Password</label>
                 <input type="password" id="inputPassword" className="form-control" name="password" onChange={onInputChange} value={data.inputPassword} placeholder="Password" required />
-                <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <button className="btn btn-lg btn-outline-primary btn-block" type="submit">Sign in <LogIn /></button>
                 <p className="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
             </form>
         </div>
