@@ -1,13 +1,17 @@
 import React from 'react'
 import { Edit, Trash, UserPlus } from 'react-feather'
 import { Button } from 'reactstrap'
+import { Link } from 'react-router-dom'
 import './ListUsers.css'
 
 const ListUsers = ({ users }) => {
     return (
         <main role="main">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 className="h2">Users</h1><Button color="success" outline title="Add new user">Add <UserPlus /></Button>
+                <h1 className="h2">Users</h1>
+                <Link to="/users/create">
+                    <Button color="success" outline title="Add new user">Add <UserPlus /></Button>
+                </Link>
             </div>
             <h2>List</h2>
             <div className="table-responsive">

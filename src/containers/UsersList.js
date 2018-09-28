@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ListUsers from '../components/Users/ListUsers'
 import MainTemplate from './MainTemplate'
-import { loadUsers } from '../actions/Users'
+import { loadUsers, addUser } from '../actions/Users'
 
 class UsersList extends Component {
     componentDidMount() {
