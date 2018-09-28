@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ListUsers from '../components/Users/ListUsers'
-import MainTemplate from '../containers/MainTemplate'
+import MainTemplate from './MainTemplate'
 import { loadUsers } from '../actions/Users'
 
-class UsersModule extends Component {
+class UsersList extends Component {
     componentDidMount() {
         this.props.loadUsers()
     }
@@ -32,4 +32,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersModule)
+export default connect(mapStateToProps, mapDispatchToProps)(UsersList)

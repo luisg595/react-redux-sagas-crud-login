@@ -27,11 +27,11 @@ const ListUsers = ({ users }) => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <Button color="warning" outline size="sm" title="Edit">
-                                        <Edit />
+                                    <Button color="warning" outline title="Edit" className="Button-size">
+                                        <Edit className="Icon-size" />
                                     </Button>&nbsp;&nbsp;&nbsp;
-                                    <Button color="danger" outline size="sm" title="Remove">
-                                        <Trash />
+                                    <Button color="danger" outline title="Remove" className="Button-size">
+                                        <Trash className="Icon-size" />
                                     </Button>
                                 </td>
                             </tr>
