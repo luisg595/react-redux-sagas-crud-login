@@ -1,7 +1,6 @@
 const authLoginReducer = (state=[], action) => {
     switch (action.type) {
         case 'REQUEST_ERROR_LOGIN':
-            console.log(action)
             return {
                 ...state,
                 error: action.payload.error,
