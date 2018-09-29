@@ -11,9 +11,17 @@ const requestDataUsersSuccess = payload => {
     }
 }
 
-const addUser = () => {
+const createUser = payload => {
     return {
-        type: 'ADD_USER'
+        type: 'CREATE_USER',
+        payload
+    }
+}
+
+const requestCreateUsersSuccess = payload => {
+    return {
+        type: 'REQUEST_CREATE_USER_SUCCESS',
+        payload
     }
 }
 
@@ -24,4 +32,4 @@ const updateColumn = payload => {
     }
 }
 
-export { loadUsers, requestDataUsersSuccess, addUser, updateColumn }
+export { loadUsers, requestDataUsersSuccess, createUser, updateColumn, requestCreateUsersSuccess }

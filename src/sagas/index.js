@@ -41,8 +41,22 @@ function* loadUsers() {
     }
 }
 
+function* createUser() {
+    while (true) {
+        try {
+            const { payload } = yield take('CREATE_USER')
+            const httpResponse = yield call(api.callApiCreateUser, payload)
+            yield put({type: 'REQUEST_CREATE_USER_SUCCESS', httpResponse})
+        }
+        catch(error) {
+            yield put({type: 'REQUEST_ERROR_CREATE_USERS', error})
+        }
+    }
+}
+
 export default function* rootSagas() {
     yield fork(login)
     yield fork(logout)
     yield fork(loadUsers)
+    yield fork(createUser)
 }

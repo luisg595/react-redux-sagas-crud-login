@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import UserForms from '../containers/UserForms'
+import { updateColumn, createUser } from '../actions/Users'
 
 class UserAdd extends Component {
-    onSubmitCreate = () => {
-        
+    onSubmitCreate = dataForm => {
+        this.props.createUser(dataForm)
     }
 
-    onInputChange = (e) => {
-        const columName = e.target.name
-        const value = e.target.value
+    onInputChangeValue = (columName, value) => {
         this.props.updateColumn({
             columName,
             value
@@ -18,20 +17,25 @@ class UserAdd extends Component {
 
     render() {
         return (
-            <UserForms title='Create User' textButton='Create' onSubmit={this.onSubmitCreate} />
+            <UserForms title='Create User' textButton='Create' onSubmit={this.onSubmitCreate} onInputChangeValue={this.onInputChangeValue} data={this.props.data} />
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-
+        data: state.usersReducer
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        updateColumn(dataInput) {
+            dispatch(updateColumn(dataInput))
+        },
+        createUser(dataForm) {
+            dispatch(createUser(dataForm))
+        }
     }
 }
 

@@ -56,4 +56,16 @@ const callApiLoadUsers = () => {
     })
 }
 
-export { callApiLogin, callApiLogout, callApiLoadUsers }
+const callApiCreateUser = (dataForm) => {
+    return new Promise((resolve, reject) => {
+        instance.post('/api/users', dataForm)
+        .then(function(response) {
+            resolve(response.data)
+        })
+        .catch(function(error) {
+            reject(error)
+        })
+    })
+}
+
+export { callApiLogin, callApiLogout, callApiLoadUsers, callApiCreateUser }
